@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html>
+
+    
+
+<head>
+
+        
+
+
+
+<title>Revenue Calculator</title>
+
+        
+
+
+
+<style>
+
+ 
+
+* {
+
+margin: 0;
+
+padding: 0;
+
+}
+
+
+
+body {
+
+background: rgba(242,246,248,1);
+
+background: -moz-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 35%, rgba(216,225,231,1) 55%, rgba(224,239,249,1) 80%, rgba(224,239,249,1) 86%, rgba(224,239,249,1) 100%);
+
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242,246,248,1)), color-stop(35%, rgba(216,225,231,1)), color-stop(55%, rgba(216,225,231,1)), color-stop(80%, rgba(224,239,249,1)), color-stop(86%, rgba(224,239,249,1)), color-stop(100%, rgba(224,239,249,1)));
+
+background: -webkit-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 35%, rgba(216,225,231,1) 55%, rgba(224,239,249,1) 80%, rgba(224,239,249,1) 86%, rgba(224,239,249,1) 100%);
+
+background: -o-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 35%, rgba(216,225,231,1) 55%, rgba(224,239,249,1) 80%, rgba(224,239,249,1) 86%, rgba(224,239,249,1) 100%);
+
+background: -ms-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 35%, rgba(216,225,231,1) 55%, rgba(224,239,249,1) 80%, rgba(224,239,249,1) 86%, rgba(224,239,249,1) 100%);
+
+background: linear-gradient(to right, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 35%, rgba(216,225,231,1) 55%, rgba(224,239,249,1) 80%, rgba(224,239,249,1) 86%, rgba(224,239,249,1) 100%);
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=1 );
+
+text-align: center;
+
+font-family: "Helvetica";
+
+}
+
+
+
+input[type='button'] {
+
+color: white;
+
+background-color: green;
+
+font-family: "Helvetica";
+
+background-color: #4CAF50; /* Green */
+
+border: 1px solid transparent;
+
+border-radius: 6px;
+
+color: white;
+
+text-align: center;
+
+text-decoration: none;
+
+display: inline-block;
+
+font-size: 14px;
+
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.14), 0 17px 50px 0 rgba(0,0,0,0.09);
+
+-webkit-transition-duration: 0.4s; /* Safari */
+
+transition-duration: 0.4s;
+
+padding: 5px;
+
+margin-top: 5px;
+
+}
+
+
+
+input[type='button']:active {
+
+background-color: #3e8e41;
+
+box-shadow: 0 5px #666;
+
+transform: translateY(2px);
+
+}
+
+
+
+h4 {
+
+margin-top: 15px;
+
+margin-bottom: 15px;
+
+}
+
+h1 {
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+.subtitle {
+border-bottom: 1px solid lightgray;
+width: 100%;
+padding: 5px;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Revenue Calculator</h1>
+
+<span class='subtitle'>Calculate how much revenue you need for the rest of the pay period to make the money you want to make</span>
+
+<form>
+
+<h4>What is your commission at?</h4>
+
+<input type='text' id='current'>
+
+
+
+<h4>What do you want your commission to be at?</h4>
+
+<input type='text' id='goal'>
+
+<h4>How many days left in the pay period?</h4>
+
+<select id='days'>
+
+<option class='day'>1</option>
+
+<option class='day'>2</option>
+
+<option class='day'>3</option>
+
+<option class='day'>4</option>
+
+<option class='day'>5</option>
+
+<option class='day'>6</option>
+
+<option class='day'>7</option>
+
+<option class='day'>8</option>
+
+<option class='day'>9</option>
+
+<option class='day'>10</option>
+
+<option class='day'>11</option>
+
+<option class='day'>12</option>
+
+<option class='day'>13</option>
+
+</select>
+
+<br>
+
+<input id='button' type='button' onclick="getRev()" value='Show me the money'>
+
+
+
+<h4>You need to make</h4>
+
+
+
+<input type='text' id='revPerDay'>
+
+
+
+<h4>Revenue per day</h4>
+
+
+
+<script>
+
+    function getRev()
+
+{
+
+    var value = parseInt(document.getElementById('revPerDay').value);
+
+    // value = isNaN(value) ? 0 : value;
+
+    var neededCom = parseInt(document.getElementById('goal').value) - parseInt(document.getElementById('current').value);
+
+    var neededRev = neededCom/.7;
+
+    value = neededRev/parseInt(document.getElementById('days').value);
+
+    document.getElementById('revPerDay').value = Math.floor(value);
+
+    document.getElementById('button').value = 'Blammo! That happened';
+
+
+
+}
+
+    </script>
+
+</form>
+
+</body>
+
+
+
+</html>       
